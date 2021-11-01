@@ -19,6 +19,7 @@ public class Cliente implements Serializable {
     private Long celular;
     private String correo;
     private String direccion;
+
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.PERSIST)
     @JsonIgnoreProperties("cliente")
     private List<Pedido> pedidos;

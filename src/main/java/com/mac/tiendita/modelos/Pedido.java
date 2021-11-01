@@ -16,11 +16,13 @@ public class Pedido implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer orden;
+    @Temporal(TemporalType.DATE)
     private Date fecha;
     @ManyToOne
     @JoinColumn(name = "cliente_cedula")
     private Cliente cliente;
+
     @OneToMany(mappedBy = "pedido", cascade = CascadeType.PERSIST)
-    @JsonIgnoreProperties({"pedido", "pedido"})
+    @JsonIgnoreProperties({"pedido", "prodcuto"})
     private List<PedidoPorProducto> pedidoPorProductos;
 }

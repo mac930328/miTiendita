@@ -18,6 +18,7 @@ public class Producto implements Serializable {
     private String nombre;
     private Double precio;
     private Double inventario;
+
     @OneToMany(mappedBy = "producto", cascade = CascadeType.PERSIST)
     @JsonIgnoreProperties({"producto","pedido"})
     private List<PedidoPorProducto> pedidoPorProductos;
